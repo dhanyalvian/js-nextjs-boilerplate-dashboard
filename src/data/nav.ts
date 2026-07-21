@@ -6,8 +6,6 @@ import {
   Package03Icon,
   UserMultiple03Icon,
   ChefHatIcon,
-  Chat01Icon,
-  NoteEditIcon,
   QuotesIcon,
   ChartAnalysisIcon,
   LaptopCheckIcon,
@@ -19,6 +17,11 @@ import {
   Invoice03Icon,
   ExchangeDollarIcon,
   ContainerTruck01Icon,
+  Chat01Icon,
+  ChatFeedbackIcon,
+  UserCircleIcon,
+  UserCheck01Icon,
+  BellRingIcon,
 } from "@hugeicons/core-free-icons"
 
 export const dataNav: nav = {
@@ -90,12 +93,12 @@ export const dataNav: nav = {
         {
           title: "Post",
           url: "/socials/posts",
-          icon: NoteEditIcon,
+          icon: Chat01Icon,
         },
         {
           title: "Comment",
           url: "/socials/comments",
-          icon: Chat01Icon,
+          icon: ChatFeedbackIcon,
         },
         {
           title: "Quote",
@@ -123,6 +126,26 @@ export const dataNav: nav = {
       url: "/settings",
       icon: Settings01Icon,
       soon: true,
+    },
+  ],
+  navUser: [
+    {
+      id: "profile",
+      title: "Profile",
+      url: "/accounts/profiles",
+      icon: UserCircleIcon,
+    },
+    {
+      id: "account",
+      title: "Account",
+      url: "/accounts/accounts",
+      icon: UserCheck01Icon,
+    },
+    {
+      id: "notification",
+      title: "Notification",
+      url: "/accounts/notifications",
+      icon: BellRingIcon,
     },
   ],
 }

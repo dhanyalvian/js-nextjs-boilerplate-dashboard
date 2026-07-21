@@ -40,7 +40,7 @@ export function NavSecondary({
                 className={`${menu.soon ? "text-muted-foreground" : ""}`}
               >
                 <Link href={menu.url}>
-                  <HugeiconsIcon icon={menu.icon} color="currentColor" strokeWidth={2} />
+                  <HugeiconsIcon icon={menu.icon} className="size-4.5!" />
                   <span>{menu.title}</span>
                 </Link>
               </SidebarMenuButton>

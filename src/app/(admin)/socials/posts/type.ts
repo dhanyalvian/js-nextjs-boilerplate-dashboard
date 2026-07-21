@@ -9,8 +9,3 @@ export interface SocialPostListResp {
   dislikes: number,
   views: number,
 }
-
-export interface DropdownResp {
-  value: string,
-  label: string,
-}

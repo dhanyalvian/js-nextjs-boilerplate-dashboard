@@ -57,11 +57,10 @@ export function NavMain({
                       tooltip={menu.title}
                       className={`${menu.soon ? "text-muted-foreground/70" : ""}`}
                     >
-                      {menu.icon && <HugeiconsIcon icon={menu.icon} strokeWidth={2} />}
+                      {menu.icon && <HugeiconsIcon icon={menu.icon} className="nav-icon" />}
                       <span>{menu.title}</span>
                       <HugeiconsIcon
                         icon={ChevronRightIcon}
-                        strokeWidth={2}
                         className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
                       />
                     </SidebarMenuButton>
@@ -79,7 +78,7 @@ export function NavMain({
                               {submenu.icon &&
                                 <HugeiconsIcon
                                   icon={submenu.icon}
-                                  strokeWidth={2}
+                                  className="nav-icon"
                                 />
                               }
                               <span>{submenu.title}</span>
@@ -100,7 +99,7 @@ export function NavMain({
                   className={`${menu.soon ? "text-muted-foreground/70" : ""}`}
                 >
                   <Link href={menu.url}>
-                    {menu.icon && <HugeiconsIcon icon={menu.icon} strokeWidth={2} />}
+                    {menu.icon && <HugeiconsIcon icon={menu.icon} className="nav-icon" />}
                     <span>{menu.title}</span>
                   </Link>
                 </SidebarMenuButton>

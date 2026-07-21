@@ -3,14 +3,6 @@
 "use client"
 
 import {
-  Bell,
-  CircleCheck,
-  CircleUserRound,
-  EllipsisVertical,
-  LogOut,
-} from "lucide-react"
-
-import {
   Avatar,
   AvatarFallback,
   AvatarImage,
@@ -36,6 +28,8 @@ import { ApiInternal } from "@/lib/api"
 import { useQueries } from "@tanstack/react-query"
 import { toast } from "sonner"
 import Link from "next/link"
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react"
+import { EllipsisVerticalIcon, LogoutSquare01Icon } from "@hugeicons/core-free-icons"
 
 interface userLoggedResp {
   id: number,
@@ -50,7 +44,15 @@ const getUserLogged = async (): Promise<userLoggedResp> => {
   return data.record
 }
 
-export function NavUser() {
+interface NavUserProps {
+  menus: {
+    title: string,
+    url: string,
+    icon: IconSvgElement,
+  }[],
+}
+
+export const NavUser = ({ menus }: NavUserProps) => {
   const { isMobile } = useSidebar()
   const router = useRouter()
 
@@ -81,7 +83,7 @@ export function NavUser() {
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+              className="data-[state=open]:bg-chart-1 data-[state=open]:text-sidebar-accent-foreground"
             >
               <Avatar className="h-8 w-8 rounded-full">
                 <AvatarImage src={avatar} alt={fullname} />
@@ -91,7 +93,7 @@ export function NavUser() {
                 <span className="truncate font-medium">{fullname}</span>
                 <span className="truncate text-xs">{email}</span>
               </div>
-              <EllipsisVertical className="ml-auto size-4" />
+              <HugeiconsIcon icon={EllipsisVerticalIcon} className="ml-auto nav-icon" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -114,24 +116,18 @@ export function NavUser() {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <Link href="/accounts/profiles">
-                <DropdownMenuItem>
-                  <CircleUserRound />
-                  Profil
-                </DropdownMenuItem>
-              </Link>
-              <DropdownMenuItem>
-                <CircleCheck />
-                Akun
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Bell />
-                Notifikasi
-              </DropdownMenuItem>
+              {menus.map((menu) => (
+                <Link key={menu.url} href={menu.url}>
+                  <DropdownMenuItem className="text-accent-foreground focus:bg-chart-1">
+                    <HugeiconsIcon icon={menu.icon} className="nav-icon text-accent-foreground" />
+                    {menu.title}
+                  </DropdownMenuItem>
+                </Link>
+              ))}
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleLogout}>
-              <LogOut />
+            <DropdownMenuItem onClick={handleLogout} className="text-accent-foreground focus:bg-chart-1">
+              <HugeiconsIcon icon={LogoutSquare01Icon} className="nav-icon text-accent-foreground" />
               Keluar
             </DropdownMenuItem>
           </DropdownMenuContent>
