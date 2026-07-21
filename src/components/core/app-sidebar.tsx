@@ -48,7 +48,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
       
       <SidebarFooter className="bg-white">
-        <NavUser />
+        <NavUser menus={dataNav.navUser} />
       </SidebarFooter>
       
       <SidebarRail />

@@ -159,7 +159,7 @@ interface CellListProps {
   max?: number,
 }
 export const CellList = ({ records, max }: CellListProps) => {
-  const displayed = max ? records.slice(0, max) : records
+  const displayed = max ? (records ?? []).slice(0, max) : (records ?? [])
 
   return (
     <ul className="list-disc ml-4 pl-0.5">
@@ -233,11 +233,7 @@ export const CellActions = ({ pathEdit, pathDelete }: ActionsProps) => {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button aria-label="Actions" variant="ghost" size="sm">
-            {/* <EllipsisVertical /> */}
-            <HugeiconsIcon
-              icon={EllipsisVerticalIcon}
-              strokeWidth={2}
-            />
+            <HugeiconsIcon icon={EllipsisVerticalIcon} />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
