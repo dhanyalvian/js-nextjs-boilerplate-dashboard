@@ -38,7 +38,7 @@ export const Columns: ColumnDef<SocialPostListResp>[] = [
   {
     accessorKey: "tags",
     header: "Tags",
-    size: 140,
+    size: 180,
     enableSorting: false,
     cell: ({ row }) => {
       return <CellList records={row.original.tags} max={3} />

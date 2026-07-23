@@ -44,7 +44,7 @@ export const DataTable = <TData, TValue>({
   totalRows,
   page,
   setPage,
-  searchPlaceholder = "Pencarian...",
+  searchPlaceholder = "Search...",
   search = "",
   setSearch,
   filters,

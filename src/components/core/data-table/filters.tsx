@@ -8,7 +8,6 @@ import { format } from "date-fns"
 import { Field } from "@/components/ui/field"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Button } from "@/components/ui/button"
-import { CalendarIcon, CalendarRangeIcon, Check, Trash2Icon } from "lucide-react"
 import { Calendar } from "@/components/ui/calendar"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -22,12 +21,20 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
 import { DateFormatted } from "@/lib/date"
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react"
+import {
+  Calendar02Icon,
+  Calendar03Icon,
+  Delete02Icon,
+  Tick02Icon,
+} from "@hugeicons/core-free-icons"
 
-const ClearIcon = Trash2Icon
-const ClearLabel = "Hapus"
+const ClearIcon = Delete02Icon
+const ClearLabel = "Clear"
+const StrokeWidth = 2
 
 interface FilterCheckboxProps {
-  Icon: React.ElementType,
+  Icon: IconSvgElement,
   title: string,
   data: {
     value: string,
@@ -72,7 +79,7 @@ const FilterCheckbox = ({
     if (selectedValues.length === 0) {
       return (
         <>
-          <Icon className="text-muted-foreground" />
+          <HugeiconsIcon icon={Icon} strokeWidth={StrokeWidth} className="text-muted-foreground" />
           <div className="font-normal text-muted-foreground">{result}</div>
         </>
       )
@@ -84,7 +91,7 @@ const FilterCheckbox = ({
 
     return (
       <>
-        <Icon />
+        <HugeiconsIcon icon={Icon} strokeWidth={StrokeWidth} />
         <div className="flex flex-row gap-2 items-center">
           <div className="font-normal">{result}</div>
           <div className="flex gap-1 pl-1.5">
@@ -143,7 +150,11 @@ const FilterCheckbox = ({
                           : "opacity-15"
                       )}
                     >
-                      <Check className={cn("h-4 w-4 text-white", isChecked ? "opacity-100" : "opacity-0")} />
+                      <HugeiconsIcon
+                        icon={Tick02Icon}
+                        strokeWidth={StrokeWidth}
+                        className={cn("h-4 w-4 text-white", isChecked ? "opacity-100" : "opacity-0")}
+                      />
                     </div>
                     <span>{row.label}</span>
                   </CommandItem>
@@ -163,7 +174,7 @@ const FilterCheckbox = ({
                         setShowClearFilter(false)
                       }}
                     >
-                      <ClearIcon />
+                      <HugeiconsIcon icon={ClearIcon} strokeWidth={StrokeWidth} />
                       {ClearLabel}
                     </div>
                   </CommandItem>
@@ -193,7 +204,7 @@ const FilterDate = ({ title, disabled = false }: FilterDateProps) => {
             className="justify-start px-2.5 font-normal"
             disabled={disabled}
           >
-            <CalendarIcon />
+            <HugeiconsIcon icon={Calendar03Icon} strokeWidth={StrokeWidth} />
             {date ? DateFormatted(date) : <span>{title}</span>}
           </Button>
         </PopoverTrigger>
@@ -232,7 +243,7 @@ const FilterDateRange = ({ title, disabled = false }: FilterDateRangeProps) => {
             )}
             disabled={disabled}
           >
-            <CalendarRangeIcon />
+            <HugeiconsIcon icon={Calendar02Icon} strokeWidth={1.5} />
             {dateRange?.from ? (
               dateRange.to ? (
                 <>
@@ -270,15 +281,17 @@ const FilterDateRange = ({ title, disabled = false }: FilterDateRangeProps) => {
 
 interface FilterResetProps {
   disabled?: boolean,
+  onClick?: () => void,
 }
-const FilterReset = ({ disabled = false }: FilterResetProps) => {
+const FilterReset = ({ disabled = false, onClick }: FilterResetProps) => {
   return (
     <Button
       variant="link"
       className="justify-start px-2.5 border-dashed text-muted-foreground text-xs"
       disabled={disabled}
+      onClick={onClick}
     >
-      Hapus Filter
+      Clear
     </Button>
   )
 }

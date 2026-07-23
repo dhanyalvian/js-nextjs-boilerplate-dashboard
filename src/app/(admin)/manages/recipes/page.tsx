@@ -11,6 +11,7 @@ import { useQueries } from "@tanstack/react-query"
 import { AppHeader, AppMain } from "@/components/core/app-layout"
 import { DataTable } from "@/components/core/data-table/table"
 import { Columns } from "./column"
+import { Filters } from "./filters"
 
 const breadcrumbItems = [
   { label: "Manages" },
@@ -75,6 +76,9 @@ const ManageRecipePage = () => {
           setPage={setPage}
           search={search}
           setSearch={setSearch}
+          filters={Filters({
+            isLoading: isLoading,
+          })}
         />
       </AppMain>
     </>

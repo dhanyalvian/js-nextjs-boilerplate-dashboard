@@ -15,8 +15,6 @@ import {
   EllipsisIcon,
 } from "@hugeicons/core-free-icons"
 
-
-
 interface PaginationProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[],
   limit: number,
@@ -27,7 +25,7 @@ interface PaginationProps<TData, TValue> {
   isLoading?: boolean,
 }
 
-export const strokeWidth = 2
+export const strokeWidth = 1.5
 export const Pagination = <TData, TValue>({
   columns,
   limit,
@@ -208,7 +206,7 @@ const renderPages = ({
         key={page}
         variant="outline"
         size="sm"
-        className={`text-xs ${currentPage === page ? "bg-neutral-200 text-black font-bold" : ""}`}
+        className={`text-xs ${currentPage === page ? "bg-chart-1 text-black font-bold" : ""}`}
         onClick={() => setPage(page as number)}
         disabled={currentPage === page}
       >

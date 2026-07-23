@@ -13,8 +13,8 @@ import { DataTable } from "@/components/core/data-table/table"
 import { Columns } from "./column"
 
 const breadcrumbItems = [
-  { label: "Socials" },
-  { label: "Post" },
+  { label: "Manages" },
+  { label: "User" },
 ]
 
 const getManageUserList = async (
