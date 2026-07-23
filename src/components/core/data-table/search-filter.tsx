@@ -9,11 +9,14 @@ import { FilterReset } from "./filters"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Cancel01Icon, PlusSignIcon, Search01Icon } from "@hugeicons/core-free-icons"
 
+const StrokeWidth = 2
+
 interface SearchProps {
   placeholder?: string,
   value: string,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
   onClear: () => void,
+  onReset?: () => void,
   isLoading?: boolean,
   filters?: React.ReactNode,
   addHref?: string,
@@ -24,6 +27,7 @@ export const SearchFilters = ({
   value,
   onChange,
   onClear,
+  onReset,
   isLoading,
   filters,
 }: SearchProps) => {
@@ -37,7 +41,7 @@ export const SearchFilters = ({
           disabled={isLoading}
         />
         <InputGroupAddon>
-          <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
+          <HugeiconsIcon icon={Search01Icon} strokeWidth={StrokeWidth} />
         </InputGroupAddon>
         {value ? (
           <InputGroupAddon align="inline-end" onClick={onClear}>
@@ -46,7 +50,7 @@ export const SearchFilters = ({
             ) : (
               <HugeiconsIcon
                 icon={Cancel01Icon}
-                strokeWidth={2}
+                strokeWidth={StrokeWidth}
                 className="cursor-pointer hover:text-foreground"
               />
             )}
@@ -62,7 +66,7 @@ export const SearchFilters = ({
         <>
           {filters}
 
-          <FilterReset disabled={isLoading} />
+          <FilterReset disabled={isLoading} onClick={onReset} />
         </>
       )}
     </div>
@@ -89,7 +93,7 @@ export const Actions = ({ title, addHref = "" }: ActionProps) => {
         size="default"
         className="rounded-md shadow-xs"
       >
-        <HugeiconsIcon icon={PlusSignIcon} strokeWidth={2} />
+        <HugeiconsIcon icon={PlusSignIcon} strokeWidth={StrokeWidth} />
         New {title && title}
       </Button>
     </ButtonGroup>

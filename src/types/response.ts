@@ -20,3 +20,8 @@ interface ApiRespDataPagination {
   totalPage: number;
   totalRecord: number;
 }
+
+export interface DropdownResp {
+  value: string,
+  label: string,
+}
