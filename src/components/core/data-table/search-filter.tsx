@@ -7,7 +7,7 @@ import { Spinner } from "@/components/ui/spinner"
 import { useRouter } from "next/navigation"
 import { FilterReset } from "./filters"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { Cancel01Icon, PlusSignIcon, Search01Icon } from "@hugeicons/core-free-icons"
+import { AddCircleHalfDotIcon, Cancel01Icon, Search01Icon } from "@hugeicons/core-free-icons"
 
 const StrokeWidth = 2
 
@@ -41,7 +41,11 @@ export const SearchFilters = ({
           disabled={isLoading}
         />
         <InputGroupAddon>
-          <HugeiconsIcon icon={Search01Icon} strokeWidth={StrokeWidth} />
+          <HugeiconsIcon
+            icon={Search01Icon}
+            strokeWidth={StrokeWidth}
+            className="size-4.5!"
+          />
         </InputGroupAddon>
         {value ? (
           <InputGroupAddon align="inline-end" onClick={onClear}>
@@ -51,7 +55,7 @@ export const SearchFilters = ({
               <HugeiconsIcon
                 icon={Cancel01Icon}
                 strokeWidth={StrokeWidth}
-                className="cursor-pointer hover:text-foreground"
+                className="cursor-pointer hover:text-foreground size-4.5!"
               />
             )}
           </InputGroupAddon>
@@ -93,7 +97,11 @@ export const Actions = ({ title, addHref = "" }: ActionProps) => {
         size="default"
         className="rounded-md shadow-xs"
       >
-        <HugeiconsIcon icon={PlusSignIcon} strokeWidth={StrokeWidth} />
+        <HugeiconsIcon
+          icon={AddCircleHalfDotIcon}
+          strokeWidth={StrokeWidth}
+          className="size-4.5!"
+        />
         New {title && title}
       </Button>
     </ButtonGroup>

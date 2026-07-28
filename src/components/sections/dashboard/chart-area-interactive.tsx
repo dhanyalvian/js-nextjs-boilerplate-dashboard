@@ -134,11 +134,11 @@ const chartConfig = {
   },
   desktop: {
     label: "Desktop",
-    color: "oklch(0.596 0.145 163.225)",
+    color: "var(--chart-1)",
   },
   mobile: {
     label: "Mobile",
-    color: "oklch(0.765 0.177 163.223)",
+    color: "var(--chart-2)",
   },
 } satisfies ChartConfig
 
@@ -182,11 +182,13 @@ export function ChartAreaInteractive() {
             value={timeRange}
             onValueChange={setTimeRange}
             variant="outline"
-            className="hidden *:data-[slot=toggle-group-item]:px-4! @[767px]/card:flex *:data-[state=on]:bg-emerald-600 *:data-[state=on]:text-white *:data-[state=on]:hover:bg-emerald-700 *:data-[state=on]:hover:text-white *:hover:bg-emerald-100 *:hover:text-emerald-900 *:border-emerald-200 *:data-[state=on]:border-emerald-600"
+            size="sm"
+            className="hidden *:data-[slot=toggle-group-item]:px-4! @[767px]/card:flex
+            *:data-[state=on]:bg-chart-1/60 *:hover:bg-chart-1/60"
           >
-            <ToggleGroupItem value="90d">Last 3 months</ToggleGroupItem>
-            <ToggleGroupItem value="30d">Last 30 days</ToggleGroupItem>
-            <ToggleGroupItem value="7d">Last 7 days</ToggleGroupItem>
+            <ToggleGroupItem value="90d" className="font-normal">Last 3 months</ToggleGroupItem>
+            <ToggleGroupItem value="30d" className="font-normal">Last 30 days</ToggleGroupItem>
+            <ToggleGroupItem value="7d" className="font-normal">Last 7 days</ToggleGroupItem>
           </ToggleGroup>
           <Select value={timeRange} onValueChange={setTimeRange}>
             <SelectTrigger

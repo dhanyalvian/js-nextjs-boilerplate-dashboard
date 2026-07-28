@@ -47,3 +47,18 @@ export const DateTimeFormatted = (date: string | Date): string => {
 
   return formatted
 }
+
+export const GetRemainingDays = (targetDate: string | Date) => {
+  if (!targetDate) return 0
+
+  const date = typeof targetDate === "string" ? new Date(targetDate) : targetDate
+
+  if (isNaN(date.getTime())) return 0
+
+  const today = new Date()
+  const diffInTime = date.getTime() - today.getTime()
+  const diffInDays = Math.ceil(diffInTime / (1000 * 3600 * 24))
+
+  if (diffInDays <= 0) return 0
+  return diffInDays
+}

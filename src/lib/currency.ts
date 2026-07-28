@@ -10,3 +10,12 @@ export const CurrencyFormatted = (number: number) => {
     maximumFractionDigits: 2,
   }).format(number);
 }
+
+export const FormatRupiah = (amount: number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
