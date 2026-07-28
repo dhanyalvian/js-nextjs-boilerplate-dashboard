@@ -35,13 +35,11 @@ export const dataNav: nav = {
       title: "Sales",
       url: "#",
       icon: DiscountTag02Icon,
-      soon: true,
       submenus: [
         {
           title: "Order",
           url: "/sales/orders",
           icon: ShoppingCart02Icon,
-          soon: true,
         },
         {
           title: "Invoice",

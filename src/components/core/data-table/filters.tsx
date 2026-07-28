@@ -32,6 +32,7 @@ import {
 const ClearIcon = Delete02Icon
 const ClearLabel = "Clear"
 const StrokeWidth = 2
+const SizeIcon = "size-4.5!"
 
 interface FilterCheckboxProps {
   Icon: IconSvgElement,
@@ -79,7 +80,11 @@ const FilterCheckbox = ({
     if (selectedValues.length === 0) {
       return (
         <>
-          <HugeiconsIcon icon={Icon} strokeWidth={StrokeWidth} className="text-muted-foreground" />
+          <HugeiconsIcon
+            icon={Icon}
+            strokeWidth={StrokeWidth}
+            className={`text-muted-foreground ${SizeIcon}`}
+          />
           <div className="font-normal text-muted-foreground">{result}</div>
         </>
       )
@@ -91,7 +96,11 @@ const FilterCheckbox = ({
 
     return (
       <>
-        <HugeiconsIcon icon={Icon} strokeWidth={StrokeWidth} />
+        <HugeiconsIcon
+          icon={Icon}
+          strokeWidth={StrokeWidth}
+          className={SizeIcon}
+        />
         <div className="flex flex-row gap-2 items-center">
           <div className="font-normal">{result}</div>
           <div className="flex gap-1 pl-1.5">
@@ -174,7 +183,11 @@ const FilterCheckbox = ({
                         setShowClearFilter(false)
                       }}
                     >
-                      <HugeiconsIcon icon={ClearIcon} strokeWidth={StrokeWidth} />
+                      <HugeiconsIcon
+                        icon={ClearIcon}
+                        strokeWidth={StrokeWidth}
+                        className={SizeIcon}
+                      />
                       {ClearLabel}
                     </div>
                   </CommandItem>
@@ -204,7 +217,11 @@ const FilterDate = ({ title, disabled = false }: FilterDateProps) => {
             className="justify-start px-2.5 font-normal"
             disabled={disabled}
           >
-            <HugeiconsIcon icon={Calendar03Icon} strokeWidth={StrokeWidth} />
+            <HugeiconsIcon
+              icon={Calendar03Icon}
+              strokeWidth={StrokeWidth}
+              className={SizeIcon}
+            />
             {date ? DateFormatted(date) : <span>{title}</span>}
           </Button>
         </PopoverTrigger>
@@ -243,7 +260,11 @@ const FilterDateRange = ({ title, disabled = false }: FilterDateRangeProps) => {
             )}
             disabled={disabled}
           >
-            <HugeiconsIcon icon={Calendar02Icon} strokeWidth={1.5} />
+            <HugeiconsIcon
+              icon={Calendar02Icon}
+              strokeWidth={StrokeWidth}
+              className={SizeIcon}
+            />
             {dateRange?.from ? (
               dateRange.to ? (
                 <>

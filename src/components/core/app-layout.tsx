@@ -1,6 +1,6 @@
 //- components/core/app-footer.tsx
 
-import React from "react";
+import React from "react"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,11 +8,11 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "../ui/breadcrumb";
-import { Separator } from "../ui/separator";
-import { SidebarTrigger } from "../ui/sidebar";
-import Link from "next/link";
-import { AppConfig } from "@/lib/app";
+} from "../ui/breadcrumb"
+import { Separator } from "../ui/separator"
+import { SidebarTrigger } from "../ui/sidebar"
+import Link from "next/link"
+import { AppConfig } from "@/lib/app"
 
 interface AppHeaderProps {
   breadcrumbItems?: { label: string; href?: string }[]
@@ -59,7 +59,13 @@ const AppHeader = ({ breadcrumbItems }: AppHeaderProps) => {
 }
 
 const AppMain = ({ children }: { children?: React.ReactNode }) => {
-  return <main className="flex-1 justify-between w-full p-4 pt-0 bg-main">{children}</main>
+  return (
+    <main className="flex-1 justify-between w-full p-4 pt-0 bg-main">
+      <div className="flex flex-col justify-between gap-4">
+        {children}
+      </div>
+    </main>
+  )
 }
 
 const AppFooter = () => {
